@@ -1,0 +1,25 @@
+using System;
+
+namespace String
+{
+    class MainApp
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("------------------------------------\n사각형의 너비를 입력하세요 : ");
+            string width = Console.ReadLine();
+
+            Console.Write("사각형의 높이를 입력하세요 : ");
+            string height = Console.ReadLine();
+
+            // 사각형의 넓이를 계산하여 출력
+
+            int I_width = int.Parse(width);
+            int I_height = int.Parse(height);
+
+            int Rec = I_width * I_height;
+
+            Console.WriteLine("------------------------------------\n사각형의 넓이는 {0} 입니다.\n------------------------------------", Rec);
+        }
+    }
+}
