@@ -1,0 +1,27 @@
+using System;
+
+namespace String
+{
+    class MainApp
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("-------------------------------------------\n정수 3개를 입력하시오 : ");
+            string a = Console.ReadLine();
+            Console.Write("나머지 정수 2개를 입력하시오 : ");
+            string b = Console.ReadLine();
+            Console.Write("나머지 정수 1개를 입력하시오 : ");
+            string c = Console.ReadLine();
+
+            int A = int.Parse(a);
+            int B = int.Parse(b);
+            int C = int.Parse(c);
+
+            int sum = A + B + C;
+            double avg = sum / 3.0;
+
+            Console.WriteLine($"-------------------------------------------\n정수 3개의 합계는 {sum} 입니다.");
+            Console.WriteLine("정수 3개의 평균는 {0:0.0000}입니다.\n-------------------------------------------", avg);
+        }
+    }
+}
