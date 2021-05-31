@@ -1,0 +1,25 @@
+using System;
+
+namespace Enum3
+{
+    class MainApp
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("정수 2개를 입력하시오 : ");
+            string a = Console.ReadLine();
+            Console.Write("나머지 정수 1개를 입력하시오 : ");
+            string b = Console.ReadLine();
+
+            int x = int.Parse(a);
+            int y = int.Parse(b);
+
+            Console.WriteLine($"{x} + {y} = {x + y}");
+            Console.WriteLine($"{x} - {y} = {x - y}");
+            Console.WriteLine($"{x} * {y} = {x * y}");
+            Console.WriteLine($"{x} / {y} = {x / y}");
+            Console.WriteLine($"{x} % {y} = {x % y}");
+
+        }
+    }
+}
