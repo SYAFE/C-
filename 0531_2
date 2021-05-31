@@ -11,7 +11,7 @@ namespace Enum3
             Console.Write("나머지 문자열 1개를 입력하시오 : ");
             string b = Console.ReadLine();
 
-            string c = a == b ? "같음" : "다름";
+            string c = a.ToUpper() == b.ToUpper() ? "같음" : "다름";    // .ToUpper() : 문자열 모두 대문자로,  .ToLower() : 문자열 모두 소문자로
 
             Console.WriteLine("\n--------------");
             Console.WriteLine($"     {c}");
