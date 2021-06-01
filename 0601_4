@@ -1,0 +1,29 @@
+using System;
+
+namespace Enum3
+{
+    class MainApp
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("총 구매액을 입력해주세요 : ");
+            string input = Console.ReadLine();
+            double price = double.Parse(input);
+
+            if(price >= 100000)
+            {
+                price = price * 0.8;
+            }
+            else if(price >= 50000)
+            {
+                price = price * 0.9;
+            }
+            else if(price >= 10000)
+            {
+                price = price * 0.95;
+            }
+
+            Console.WriteLine($"\n최종 결제액은 {price}원 입니다.");
+        }
+    }
+}
