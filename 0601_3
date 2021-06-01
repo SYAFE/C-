@@ -1,0 +1,74 @@
+using System;
+
+namespace Enum3
+{
+    class MainApp
+    {
+        static void Main(string[] args)
+        {
+            int number1 = 0, number2 = 0, number3 = 0, i = 0;
+
+            while (i == 0)
+            {
+                Console.Write("점수(0~100)를 3개 입력하세요 : ");
+                string input1 = Console.ReadLine();
+                number1 = int.Parse(input1);
+                if (number1 > 100 || number1 < 0)
+                {
+                    Console.WriteLine("\n점수 입력이 잘못되었습니다.\n");
+                }
+                else i = 1;
+            }
+
+            while (i == 1)
+            {
+                Console.Write("2번째 점수를 입력하세요 : ");
+                string input2 = Console.ReadLine();
+                number2 = int.Parse(input2);
+                if (number2 > 100 || number2 < 0)
+                {
+                    Console.WriteLine("\n점수 입력이 잘못되었습니다.\n");
+                }
+                else i = 0;
+            }
+
+            while (i == 0)
+            {
+                Console.Write("마지막 점수를 입력하세요 : ");
+                string input3 = Console.ReadLine();
+                number3 = int.Parse(input3);
+                if (number3 > 100 || number3 < 0)
+                {
+                    Console.WriteLine("\n점수 입력이 잘못되었습니다.\n");
+                }
+                else i = 1;
+            }
+
+            double avg = (number1 + number2 + number3) / 3;
+            string result;
+
+            if(avg >= 90)
+            {
+                result = "A";
+            }
+            else if(avg >= 80)
+            {
+                result = "B";
+            }
+            else if (avg >= 70)
+            {
+                result = "C";
+            }
+            else if (avg >= 60)
+            {
+                result = "D";
+            }
+            else
+            {
+                result = "F";
+            }
+
+            Console.WriteLine($"\n평균 점수는 {avg}, 학점은 {result} 입니다.");
+        }
+    }
+}
