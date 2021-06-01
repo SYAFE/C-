@@ -30,7 +30,6 @@ namespace Enum3
                 Console.WriteLine($"\n최종 결제액은 {price}원 입니다.");
                 Console.WriteLine("10000원 이상 구매 시 할인되니 많이 사주세요! ^^");
             }
-
         }
     }
 }
