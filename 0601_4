@@ -10,20 +10,27 @@ namespace Enum3
             string input = Console.ReadLine();
             double price = double.Parse(input);
 
-            if(price >= 100000)
+            if(price >= 100000.0)
             {
                 price = price * 0.8;
+                Console.WriteLine($"\n최종 결제액은 {price}원 입니다.");
             }
-            else if(price >= 50000)
+            else if(price >= 50000.0)
             {
                 price = price * 0.9;
+                Console.WriteLine($"\n최종 결제액은 {price}원 입니다.");
             }
-            else if(price >= 10000)
+            else if(price >= 10000.0)
             {
                 price = price * 0.95;
+                Console.WriteLine($"\n최종 결제액은 {price}원 입니다.");
+            }
+            else
+            {
+                Console.WriteLine($"\n최종 결제액은 {price}원 입니다.");
+                Console.WriteLine("10000원 이상 구매 시 할인되니 많이 사주세요! ^^");
             }
 
-            Console.WriteLine($"\n최종 결제액은 {price}원 입니다.");
         }
     }
 }
