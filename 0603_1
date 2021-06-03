@@ -14,7 +14,7 @@ namespace Enum3
                 {
                     Console.WriteLine($"{i} * {k} = {i * k}");
                 }
-                Console.WriteLine("--------------\n");
+                Console.WriteLine("--------------");
             }
         }
     }
