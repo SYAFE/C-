@@ -6,7 +6,7 @@ namespace Enum3
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("\n--------------");
+            Console.WriteLine("--------------");
             for (int i = 2; i < 10; i++)
             {
                 Console.WriteLine($"\n     {i}단\n");
