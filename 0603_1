@@ -9,10 +9,10 @@ namespace Enum3
             Console.WriteLine("\n--------------");
             for (int i = 2; i < 10; i++)
             {
-                Console.WriteLine($"  {i}단\n");
+                Console.WriteLine($"\n     {i}단\n");
                 for (int k = 1; k < 10; k++)
                 {
-                    Console.WriteLine($"{i} * {k} = {i * k}");
+                    Console.WriteLine($"  {i} * {k} = {i * k}");
                 }
                 Console.WriteLine("--------------");
             }
