@@ -1,0 +1,23 @@
+using System;
+
+namespace Enum3
+{
+    class MainApp
+    {
+        static void Main(string[] args)
+        {
+            Console.Write("숫자를 입력해주세요 : ");
+            string input = Console.ReadLine();
+            var num = int.Parse(input);
+            
+            for(var i = 0; i < num; i++)
+            {
+                for (var j = 0; j < i + 1; j++)
+                {
+                    Console.Write("*");
+                }
+                Console.WriteLine();
+            }
+        }
+    }
+}
