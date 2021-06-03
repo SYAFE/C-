@@ -1,4 +1,4 @@
-using System;
+using System;  // * triangle
 
 namespace Enum3
 {
@@ -6,7 +6,7 @@ namespace Enum3
     {
         static void Main(string[] args)
         {
-            Console.Write("숫자를 입력해주세요 : ");
+            Console.Write("Insert Number : ");
             var num = int.Parse(Console.ReadLine());
             
             for(var i = 1; i <= num; i++)
