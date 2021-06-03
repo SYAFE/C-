@@ -1,0 +1,21 @@
+using System;
+
+namespace Enum3
+{
+    class MainApp
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("\n--------------");
+            for (int i = 2; i < 10; i++)
+            {
+                Console.WriteLine($"  {i}단");
+                for (int k = 1; k < 10; k++)
+                {
+                    Console.WriteLine($"{i} * {k} = {i * k}");
+                }
+                Console.WriteLine("--------------\n");
+            }
+        }
+    }
+}
