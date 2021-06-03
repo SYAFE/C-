@@ -1,0 +1,30 @@
+using System;
+
+namespace Enum3
+{
+    class MainApp
+    {
+        static void Main(string[] args)
+        {
+            int sum = 0;
+            var before = 0;
+            var now = 1;
+            var next = now + before;
+
+            while (now <= 400_0000)
+            {
+                if(now % 2 == 0)
+                {
+                    sum = sum + now;
+                }
+
+                before = now;
+                now = next;
+                next = now + before;
+
+            }
+
+            Console.WriteLine(sum);
+        }
+    }
+}
