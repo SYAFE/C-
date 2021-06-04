@@ -1,0 +1,94 @@
+using System;
+
+namespace Enum3
+{
+    class MainApp
+    {
+        static void Main(string[] args)
+        {
+            int a = 999, b = 999;
+            int max = 0;
+
+            while (true)
+            {
+                if (Pri(a * b))
+                {
+                    if (max < a * b)
+                    {
+                        max = a * b;
+                        if (a == 0 && b == 0)
+                        {
+                            break;
+                        }
+
+                        else if (a != 0)
+                        {
+                            a--;
+                        }
+                        else
+                        {
+                            a = 999;
+                            b--;
+                        }
+                    }
+                    else
+                    {
+                        if (a == 0 && b == 0)
+                        {
+                            break;
+                        }
+
+                        else if (a != 0)
+                        {
+                            a--;
+                        }
+                        else
+                        {
+                            a = 999;
+                            b--;
+                        }
+                    }
+
+                }
+                else
+                {
+                    if (a == 0 && b == 0)
+                    {
+                        break;
+                    }
+
+                    else if (a != 0)
+                    {
+                        a--;
+                    }
+                    else
+                    {
+                        a = 999;
+                        b--;
+                        
+                    }
+                }
+
+            }
+
+            Console.WriteLine(max);
+        }
+
+        static bool Pri(int t)
+        {
+            string st = t.ToString();
+
+            char[] str = st.ToCharArray();
+            Array.Reverse(str);
+
+            if (new string(str) == st)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+    }
+}
