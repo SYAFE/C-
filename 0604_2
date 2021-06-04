@@ -27,12 +27,6 @@ public class Class1
 
     static double Carc(double a, double b)  // 메소드 오버로딩
     {
-        double t = 1;
-
-        for (int i = 0; i < b; i++)
-        {
-            t = t * a;
-        }
-        return t;
+        return (double)Carc((int)a, (int)b);
     }
 }
