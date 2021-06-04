@@ -1,3 +1,4 @@
+
 using System;
 
 public class Class1
@@ -6,15 +7,27 @@ public class Class1
     static void Main(string[] args)
     {
         Console.WriteLine("숫자를 입력해주세요 : ");
-        int num1 = int.Parse(Console.ReadLine());
-        int num2 = int.Parse(Console.ReadLine());
+        double num1 = double.Parse(Console.ReadLine());
+        double num2 = double.Parse(Console.ReadLine());
 
+        Console.WriteLine(Carc((int)num1, (int)num2));
         Console.WriteLine(Carc(num1, num2));
     }
 
     static int Carc(int a, int b)
     {
         int t = 1;
+
+        for (int i = 0; i < b; i++)
+        {
+            t = t * a;
+        }
+        return t;
+    }
+
+    static double Carc(double a, double b)  // 메소드 오버로딩
+    {
+        double t = 1;
 
         for (int i = 0; i < b; i++)
         {
