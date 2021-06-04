@@ -1,0 +1,25 @@
+using System;
+
+public class Class1
+{
+
+    static void Main(string[] args)
+    {
+        Console.WriteLine("숫자를 입력해주세요 : ");
+        int num1 = int.Parse(Console.ReadLine());
+        int num2 = int.Parse(Console.ReadLine());
+
+        Console.WriteLine(Carc(num1, num2));
+    }
+
+    static int Carc(int a, int b)
+    {
+        int t = a;
+
+        for (int i = 1; i < b; i++)
+        {
+            t = t * a;
+        }
+        return t;
+    }
+}
