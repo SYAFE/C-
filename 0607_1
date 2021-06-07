@@ -1,0 +1,87 @@
+using System;
+
+namespace Enum3
+{
+    class MainApp
+    {
+        static void Main(string[] args)
+        {
+            int num1, num2;
+
+            while (true)
+            {
+                Console.Write("계산하고 싶은 연산자 입력 ( + , - , * , / , 종료 Q) : ");
+                string su = Console.ReadLine();
+
+                if (su == "Q" || su == "q")
+                    break;
+
+                while (true)
+                {
+                    Console.Write("피연산자 1 입력 : ");
+                    if (Int32.TryParse(Console.ReadLine(), out num1))   // TryParse(string ?, out int ?) : 
+                    {                                                   // string형 변수 데이터가 int형으로 변환이 가능하면 int형 변수에 값을 넣어주면서 True값 리턴
+                        break;                                          // 변환 불가능 시 False 리턴
+                    }
+                    else
+                    {
+                        Console.WriteLine("\n정수 형태로 다시 입력해주세요.\n");
+                    }
+                }
+
+                while (true)
+                {
+                    Console.Write("피연산자 2 입력 : "); 
+                    if (Int32.TryParse(Console.ReadLine(), out num2))
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("\n정수 형태로 다시 입력해주세요.\n");
+                    }
+                }
+
+
+                switch (su)
+                {
+                    case "+":
+                        Console.WriteLine($"\n{num1} {su} {num2} = {Add(num1, num2)}\n");
+                        break;
+                    case "-":
+                        Console.WriteLine($"\n{num1} {su} {num2} = {Rmv(num1, num2)}\n");
+                        break;
+                    case "*":
+                        Console.WriteLine($"\n{num1} {su} {num2} = {Mul(num1, num2)}\n");
+                        break;
+                    case "/":
+                        if (num2 == 0)
+                            Console.WriteLine("\n0으로 나눌 수 없습니다.\n");
+                        else
+                            Console.WriteLine($"\n{num1} {su} {num2} = {Div(num1, num2)}\n");
+                        break;
+                    default:
+                        Console.WriteLine("\n연산자 입력이 잘못 되었습니다.\n");
+                        break;
+                }
+            }
+        }
+
+        static int Add(int a, int b)
+        {
+            return a + b;
+        }
+        static int Rmv(int a, int b)
+        {
+            return a - b;
+        }
+        static int Mul(int a, int b)
+        {
+            return a * b;
+        }
+        static int Div(int a, int b)
+        {
+            return a / b;
+        }
+    }
+}
