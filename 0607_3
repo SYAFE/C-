@@ -1,0 +1,93 @@
+using System;
+
+namespace Enum3
+{
+    class MainApp
+    {
+        static void Main(string[] args)
+        {           
+            while (true)
+            {
+                int num1, num2;
+
+                Console.Write("Insert Number1 : ");
+                num1 = int.Parse(Console.ReadLine());
+
+                Console.Write("Insert Number2 : ");
+                num2 = int.Parse(Console.ReadLine());
+
+                Console.WriteLine($"\n{num1}과 {num2}의 최대공약수 : {GCD(num1, num2)}\n");
+                Console.WriteLine($"{num1}과 {num2}의 최소공배수 : {LCM(num1, num2)}\n");
+                Console.WriteLine($"{num1}은 소수인가 : {Dec(num1)}\n");
+                Console.WriteLine($"{num2}은 소수인가 : {Dec(num2)}\n");
+
+            }
+        }
+
+        // 두 수의 최소공배수
+        static int LCM(int num1, int num2)
+        {
+            int result;
+            if (num1 < num2)
+            {
+                int temp = num1;
+                num1 = num2;
+                num2 = temp;
+            }
+
+            int i = num1;
+            while(true)
+            {               
+                if (i % num1 == 0 && i % num2 == 0)
+                {
+                    result = i;
+                    break;
+                }
+                else
+                {
+                    i += num1;
+                }
+            }
+
+            return result;
+        }
+
+        // 두 수의 최대공약수
+        static int GCD(int num1, int num2)
+        {
+            int result = 0;
+            if(num1 < num2)
+            {
+                int temp = num1;
+                num1 = num2;
+                num2 = temp;
+            }
+
+            int i = num2;
+            while(true)
+            {
+                if (num1 % i == 0 && num2 % i == 0)
+                {
+                    result = i;
+                    break;
+                }
+                else
+                    i--;
+            }
+
+            return result;
+        }
+
+        // 두 수 간 소수 판별 bool값 리턴
+        static bool Dec(int num1)
+        {
+            for (int i = 2; num1 != i; ++i)
+            {
+                if (num1 % i == 0)
+                    return false;
+            }
+
+            return true;
+        }
+    }
+}
