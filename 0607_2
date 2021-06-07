@@ -1,0 +1,77 @@
+using System;
+
+namespace Enum3
+{
+    class MainApp
+    {
+        static void Main(string[] args)
+        {
+            while (true)
+            {
+                int num1, num2;
+
+                while (true)
+                {
+                    Console.Write("구구단 출력 (a단 ~ b단) a 입력 : ");
+                    if (Int32.TryParse(Console.ReadLine(), out num1))   // TryParse(string ?, out int ?) : 
+                    {                                                   // string형 변수 데이터가 int형으로 변환이 가능하면 int형 변수에 값을 넣어주면서 True값 리턴
+                        break;                                          // 변환 불가능 시 False 리턴
+                    }
+                    else
+                    {
+                        Console.WriteLine("\n정수 형태로 다시 입력해주세요.\n");
+                    }
+                }
+
+                while (true)
+                {
+                    Console.Write("구구단 출력 (a단 ~ b단) b 입력 : ");
+                    if (Int32.TryParse(Console.ReadLine(), out num2))
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("\n정수 형태로 다시 입력해주세요.\n");
+                    }
+                }
+                
+                if(num1 > num2)
+                {
+                    int temp = num2;
+                    num2 = num1;
+                    num1 = temp;
+                }
+
+                for (int i = num1; i <= num2; i++)
+                {
+                    Console.WriteLine($"\n{i}단");
+                    Gugudan(i);
+                }
+
+                Console.WriteLine($"\n{num1}! = {Fac(num1)}\n");
+
+            }
+        }
+        
+        static void Gugudan(int a)
+        {
+            for (int k = 1; k <= 9; k++)
+            {
+                Console.WriteLine($"{a} * {k} = {a * k}");
+            }
+        }
+        
+        static int Fac(int a)   // 팩토리얼 계산
+        {
+            if(a == 0)
+            {
+                return 1;
+            }
+            else
+            {
+                return a * Fac(a - 1);
+            }
+        }
+    }
+}
