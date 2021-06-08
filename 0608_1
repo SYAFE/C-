@@ -1,0 +1,53 @@
+using System;
+
+namespace Enum3
+{
+    class Calculator
+    {
+        public int addCnt = 0;
+        public int minCnt = 0;
+        public int divCnt = 0;
+        public int mulCnt = 0;
+        public int Add(int num1, int num2)
+        {
+            addCnt++;
+            return num1 + num2;
+        }
+        public int Minus(int num1, int num2)
+        {
+            minCnt++;
+            return num1 - num2;
+        }
+        public int Multifly(int num1, int num2)
+        {
+            mulCnt++;
+            return num1 * num2;
+        }
+        public int Divide(int num1, int num2)
+        {
+            divCnt++;
+            return num1 / num2;
+        }
+        public void ShowOpCount()
+        {
+            Console.WriteLine($"덧셈 : {addCnt} / 뺄셈 : {minCnt} / 곱셈 : {mulCnt} / 나눗셈 : {divCnt}");
+        }
+    }
+    
+    class MainApp
+    {
+        static void Main(string[] args)
+        {
+            Calculator calc = new Calculator();
+
+            Console.WriteLine(calc.Add(3, 5));
+            Console.WriteLine(calc.Divide(12, 4));
+            Console.WriteLine(calc.Minus(12, 4));
+            Console.WriteLine(calc.Multifly(3, 5));
+            Console.WriteLine(calc.Add(12, 4));
+
+            calc.ShowOpCount();
+
+        }
+    }
+}
