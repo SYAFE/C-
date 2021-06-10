@@ -1,0 +1,110 @@
+using System;
+
+namespace Shape
+{
+    // Point class
+    // 필드: double x, y
+    // 생성자: double, double
+    // 메소드: GetX(), GetY(), SetX(), SetY(), 문자열 리턴 "(x, y)"
+
+    class Point
+    {
+        private double x;
+        private double y;
+
+        public Point(double x, double y)
+        {
+            this.x = x;
+            this.y = y;
+        }
+        public double GetX()
+        {
+            return x;
+        }
+        public double GetY()
+        {
+            return y;
+        }
+        public void SetX(double x)
+        {
+            this.x = x;
+        }
+        public void SetY(double y)
+        {
+            this.y = y;
+        }
+        public string ToString()
+        {
+            return $"({x}, {y})";
+        }
+    }
+    
+    // Rectangle
+    // 생성자: (Point, Point)   // 조건부조합 : (0,0), (0,0)
+    // 필드: Point lt, Point rb
+    // 메소드: GetLT(), GetRB(), SetLTRB(), 문자열 리턴 "LT: (x, y) / RB: (x, y)"
+
+    class Rectangle
+    {
+        private Point lt = new Point(0.0, 0.0);
+        private Point rb = new Point(0.0, 0.0);
+        public Rectangle(Point lt, Point rb)
+        {
+            SetLTRB(lt, rb);
+        }
+        public Point GetLT()
+        {
+            return new Point(lt.GetX(), lt.GetY());
+        }
+        public Point GetRB()
+        {
+            return new Point(rb.GetX(), rb.GetY());
+        }
+        public void SetLTRB(Point lt, Point rb)
+        {
+            if(lt.GetX() < rb.GetX() && lt.GetY() > rb.GetY())
+            {
+                this.lt = new Point(lt.GetX(), lt.GetY());
+                this.rb = new Point(rb.GetX(), rb.GetY());
+            }
+        }
+        public string RectString()
+        {
+            return $"LT: {lt.ToString()} / RB: {rb.ToString()}";
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            /*
+            Point point = new Point(1.0, 2.0);
+            Console.WriteLine(point.ToString());
+
+            point.SetX(10.0);
+            Console.WriteLine(point.GetX());
+
+            point.SetY(20.0);
+            Console.WriteLine(point.GetY());
+            */
+
+            Point lt = new Point(3.0, 4.0);
+            Point rb = new Point(7.0, 2.0);
+
+            Rectangle rect = new Rectangle(lt, rb);
+
+            Console.WriteLine(rect.RectString());
+
+            lt.SetX(1.0);
+            Console.WriteLine(lt.ToString());
+            Console.WriteLine(rect.RectString());
+
+            Point pt5 = rect.GetLT();
+            pt5.SetX(200.0);
+
+            Console.WriteLine(rect.RectString());
+
+        }
+    }
+}
