@@ -33,18 +33,34 @@ namespace Shape
         {
             this.y = y;
         }
-        public string ToString()
+        public string GetString()
         {
             return $"({x}, {y})";
         }
     }
     
+    class Shape
+    {
+        public virtual string GetString()
+        {
+            return string.Empty;    // "" (빈 문자열)
+        }
+        public virtual double Area()
+        {
+            return 0.0;
+        }
+        public virtual double Round()
+        {
+            return 0.0;
+        }
+    }
+
     // Rectangle
     // 생성자: (Point, Point)   // 조건부조합 : (0,0), (0,0)
     // 필드: Point lt, Point rb
     // 메소드: GetLT(), GetRB(), SetLTRB(), 문자열 리턴 "LT: (x, y) / RB: (x, y)"
 
-    class Rectangle
+    class Rectangle : Shape
     {
         private Point lt = new Point(0.0, 0.0);
         private Point rb = new Point(0.0, 0.0);
@@ -64,13 +80,73 @@ namespace Shape
         {
             if(lt.GetX() < rb.GetX() && lt.GetY() > rb.GetY())
             {
-                this.lt = new Point(lt.GetX(), lt.GetY());
+                this.lt = new Point(lt.GetX(), lt.GetY());  // 깊은 복사
                 this.rb = new Point(rb.GetX(), rb.GetY());
             }
         }
-        public string RectString()
+        public override string GetString()
         {
-            return $"LT: {lt.ToString()} / RB: {rb.ToString()}";
+            return $"LT: {lt.GetString()} / RB: {rb.GetString()}";
+        }
+        public override double Area()
+        {
+            return ((rb.GetX() - lt.GetX()) + (lt.GetY() - rb.GetY())) * 2;
+        }
+        public override double Round()
+        {
+            return (rb.GetX() - lt.GetX()) * (lt.GetY() - rb.GetY());
+        }
+    }
+
+    // Circle
+    // 필드: Point center, double radius
+    // 생성자: (Point, double)
+    // 메소드: GetCenter(), GetRadius(), SetCenter(), SetRadius(), ToString() "중점: (??, ??) / 반지름: ??"
+
+    class Circle : Shape
+    {
+        private Point center;
+        private double radius = 0.0;
+
+        public Circle(Point center, double radius)
+        {
+            SetCenter(center);
+            SetRadius(radius);          
+        }
+        public Point GetCenter()
+        {
+            return new Point(center.GetX(), center.GetY());
+        }
+        public double GetRadius()
+        {
+            return radius;
+        }
+        public void SetCenter(Point center)
+        {
+            this.center = new Point(center.GetX(), center.GetY());
+        }
+        public void SetRadius(double radius)
+        {
+            if(radius >= 0.0)
+            {
+                this.radius = radius;
+            }
+            else
+            {
+                Console.WriteLine("반지름은 음수가 될 수 없습니다.");
+            }
+        }
+        public override string GetString()
+        {
+            return $"중점: {center.GetString()}/ 반지름: {radius}";
+        }
+        public override double Area()
+        {
+            return 2 * 3.14 * Math.PI;
+        }
+        public override double Round()
+        {
+            return 3.14 * Math.PI * Math.PI;
         }
     }
 
@@ -79,8 +155,10 @@ namespace Shape
         static void Main(string[] args)
         {
             /*
+            // Point 예제
+
             Point point = new Point(1.0, 2.0);
-            Console.WriteLine(point.ToString());
+            Console.WriteLine(point.GetString());
 
             point.SetX(10.0);
             Console.WriteLine(point.GetX());
@@ -89,22 +167,56 @@ namespace Shape
             Console.WriteLine(point.GetY());
             */
 
+            /*
+            // Rectangle 예제
+
             Point lt = new Point(3.0, 4.0);
             Point rb = new Point(7.0, 2.0);
 
             Rectangle rect = new Rectangle(lt, rb);
 
-            Console.WriteLine(rect.RectString());
+            Console.WriteLine(rect.GetString());
 
             lt.SetX(1.0);
-            Console.WriteLine(lt.ToString());
-            Console.WriteLine(rect.RectString());
+            Console.WriteLine(lt.GetString());
+            Console.WriteLine(rect.GetString());
 
             Point pt5 = rect.GetLT();
             pt5.SetX(200.0);
 
-            Console.WriteLine(rect.RectString());
+            Console.WriteLine(rect.GetString());
+            */
 
+            /*
+            // Circle 예제
+
+            Point center2 = new Point(5.0, 9.1);
+            double rad2 = 4;
+
+            Circle cir1 = new Circle(new Point(1.0, 2.0), 10.0);
+            Circle cir2 = new Circle(center2, rad2);
+            Console.WriteLine(cir1.GetString());
+
+            cir2.SetCenter(cir1.GetCenter());
+            Console.WriteLine(cir2.GetString());
+            cir1.SetCenter(new Point(8.0, 5.0));
+            cir1.SetRadius(-10);
+            Console.WriteLine(cir1.GetString());
+            */
+
+
+            // Override 예제
+
+            Shape shape1 = new Rectangle(new Point(1.0, 4.0), new Point(3.0, 2.0));
+            Console.WriteLine(shape1.GetString());  // LT: (1, 4) RB: (3, 2)
+
+            Shape shape2 = new Circle(new Point(2.5, 2.5), 5.0);
+            Console.WriteLine(shape2.GetString());  // Center: (2.5, 2.5) Radius: 5.0
+
+            Console.WriteLine(shape1.Area());
+            Console.WriteLine(shape1.Round());
+            Console.WriteLine(shape2.Area());
+            Console.WriteLine(shape2.Round());
         }
     }
 }
